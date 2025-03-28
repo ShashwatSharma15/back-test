@@ -11,6 +11,12 @@ const express = require('express')
 const app = express()
 const port = 4000
 
+const githubData = {
+    "message": "Not Found",
+    "documentation_url": "https://docs.github.com/rest",
+    "status": "404"
+  }
+
 //req = request , res = response
 app.get('/', (req, res) => {
     res.send('Hello World!')
@@ -18,6 +24,10 @@ app.get('/', (req, res) => {
 
 app.get('/twitter', (req, res) => {
     res.send('<h1>hello world do again</h1>')
+})
+
+app.get('/github', (req, res) => {
+    res.json(githubData)
 })
 
 app.listen(process.env.PORT, () => {
